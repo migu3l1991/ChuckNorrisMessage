@@ -2,6 +2,8 @@ import { async } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/pluck';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/repeat';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,7 @@ export class AppComponent {
     this.getNews();
   }
   getNews() {
-    this.post$ = this.httpClient.get(this.url).pluck('value');
     this.urlImage = 'https://api.adorable.io/avatars/86/' + Math.random();
+    this.post$ = this.httpClient.get(this.url).pluck('value').delay(6000).repeat();
   }
 }
