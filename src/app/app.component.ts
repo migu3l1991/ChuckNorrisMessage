@@ -6,9 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/repeat';
-import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/interval';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +20,6 @@ export class AppComponent {
   post$;
   testt;
   constructor(private httpClient: HttpClient) {
-    this.testt = Observable.timer(1, 6000);
     this.getNews();
   }
   getNews() {
